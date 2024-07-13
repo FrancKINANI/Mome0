@@ -1,0 +1,29 @@
+<launch>
+    <!-- Robot pose -->
+	<arg name="x" default="0"/>
+	<arg name="y" default="0"/>
+	<arg name="z" default="0"/>
+	<arg name="roll" default="0"/>
+	<arg name="pitch" default="0"/>
+	<arg name="yaw" default="1.57"/>
+
+    <!-- Chargement de la description du robot -->
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find mome)/urdf/mome.xacro'" />
+
+    <!-- Apparition du modèle du robot -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+        <param name="publish_frequency" type="double" value="50.0"/>
+        <param name="tf_prefix" type="string" value=""/>
+    </node>
+
+    <!-- Send fake joint values-->
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+        <param name="use_gui" value="false"/>
+    </node>
+
+    <!-- Apparition du modèle du robot -->
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" 
+        args="-urdf -model robot_model -param robot_description -model mome
+        -x $(arg x) -y $(arg y) -z $(arg z)
+		    -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)"/>
+</launch>
