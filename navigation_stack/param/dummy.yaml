@@ -1,0 +1,35 @@
+# Dummy configuration file for testing purposes
+
+# Robot parameters
+robot_name: "dummy_robot"
+robot_type: "mobile_base"
+
+# Dummy speed limits
+max_speed_linear: 0.5  # Maximum linear speed in m/s
+max_speed_angular: 1.0 # Maximum angular speed in rad/s
+
+# Dummy acceleration limits
+max_accel_linear: 0.2  # Maximum linear acceleration in m/s^2
+max_accel_angular: 0.5 # Maximum angular acceleration in rad/s^2
+
+# Dummy navigation parameters
+nav_goal_tolerance: 0.1 # Tolerance for reaching navigation goal in meters
+nav_orientation_tolerance: 0.1 # Tolerance for reaching orientation goal in radians
+
+# Dummy sensor parameters
+lidar_range: 10.0      # Maximum range of the Lidar in meters
+camera_resolution:     # Camera resolution
+  width: 640
+  height: 480
+
+# Dummy control parameters
+control_frequency: 10.0 # Control loop frequency in Hz
+
+# Dummy path planning parameters
+planner_window:         # Planning window dimensions
+  x: 5.0
+  y: 5.0
+
+# Placeholder for additional parameters
+dummy_parameter_1: "value1"
+dummy_parameter_2: "value2"

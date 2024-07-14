@@ -1,0 +1,20 @@
+move_base:
+  controller_frequency: 10.0   
+  recovery_behavior_enabled: true
+  planner_patience: 10.0      
+  controller_patience: 15.0   
+  planner_frequency: 1.0
+  oscillation_timeout: 2.0
+  oscillation_distance: 0.2
+  shutdown_costmaps: false
+
+  # local planner - default is trajectory rollout
+  base_local_planner: "base_local_planner/TrajectoryPlannerROS" #"dwa_local_planner/DWAPlannerROS"
+
+  base_global_planner: "navfn/NavfnROS" 
+
+recovery_behaviors:
+  - name: rotate_recovery
+    type: rotate_recovery/RotateRecovery
+    clear_distance: 0.25     
+    rotate_angle: 180        
